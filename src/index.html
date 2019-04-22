@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <script src="https://unpkg.com/konva@3.2.4/konva.min.js"></script>
+    <meta charset="utf-8" />
+    <title>Computer Graphics Project</title>
+
+    <link rel="stylesheet" href="./stylesheets/styles.scss">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+
+<body>
+    <div class="project-heading">
+        <div class="shape-selector">
+
+            <img onclick="shapeFactory('line');" src="https://img.icons8.com/color/48/000000/line.png"
+                class="shape-icon">
+            <img onclick="shapeFactory('triangle');" src="https://img.icons8.com/color/48/000000/triangle-stroked.png"
+                class="shape-icon">
+            <img onclick="shapeFactory('square');"
+                src="https://img.icons8.com/ios/48/33aeb6/unchecked-checkbox-filled.png" class="shape-icon">
+            <img onclick="shapeFactory('rect');" src="https://img.icons8.com/color/48/000000/rectangle-stroked.png"
+                class="shape-icon">
+            <img onclick="shapeFactory('circle');"
+                src="https://img.icons8.com/ios/50/33aeb6/unchecked-circle-filled.png" class="shape-icon">
+            <img onclick="shapeFactory('ellipse');" src="https://img.icons8.com/color/48/000000/ellipse-stroked.png"
+                class="shape-icon">
+            <img onclick="shapeFactory('curve');" src="https://img.icons8.com/ios/50/33aeb6/scout-knot-filled.png"
+                class="shape-icon">
+            <img onclick="shapeFactory('polyLine');" src="https://img.icons8.com/ios/50/33aeb6/polyline-filled.png"
+                class="shape-icon">
+            <img onclick="shapeFactory('polygon');" src="https://img.icons8.com/color/48/000000/pentagon.png"
+                class="shape-icon">
+
+        </div>
+        <div class="file-loader">
+            <button onclick="clearClicks();">Clear clicks</button>
+            <button onclick="saveToFile();">save to file</button>
+            <input type="file" id="files" onchange="readFile();" />
+        </div>
+    </div>
+    <div id="container" class="canvas-container"></div>
+
+    <script>
+        // let lastFourClicks = [];
+        // let state = [];
+
+        // let reader = new FileReader();
+
+        // reader.onload = (e) => {
+        //     let text = e.currentTarget.result[0];
+        //     let parsed = JSON.parse(text);
+        // }
+
+        // async function readFile() {
+        //     let fp = document.getElementById('files').files[0];
+        //     reader.readAsText(fp);
+        // }
+
+
+        // function clearClicks() {
+        //     while (lastFourClicks.length > 0) {
+        //         lastFourClicks.shift();
+        //     }
+        // }
+
+        // // ON DRAG, CHECK FOR MOUSEUP POSITION. SAVE THAT TO STATE. WHEN WE open from file, set position for all knova nodes via setAbsolutePostion
+        // // https://konvajs.org/api/Konva.Transform.html#setAbsolutePosition__anchor
+
+        // const drawCanvas = () => {
+        //     for (let i = 0; i < state.length; i++) {
+        //         layer.add(state[i]);
+        //     }
+        //     stage.find('Transformer').destroy();
+        //     layer.draw();
+        // }
+
+        // const shapeFactory = (shape) => {
+        //     let newShape = shapes[shape]();
+        //     state.push(newShape);
+        //     drawCanvas();
+        // }
+
+        // var width = window.innerWidth;
+        // var height = window.innerHeight;
+
+        // var stage = new Konva.Stage({
+        //     container: 'container',
+        //     width: width,
+        //     height: height
+        // });
+
+        // var layer = new Konva.Layer();
+        // stage.add(layer);
+
+        // stage.on('click tap', function (e) {
+        //     let mousePos = {
+        //         x: event.clientX,
+        //         y: event.clientY
+        //     };
+        //     console.log(mousePos);
+        //     lastFourClicks.push(mousePos);
+
+        //     if (lastFourClicks.length > 5) {
+        //         lastFourClicks.shift();
+        //     }
+
+        //     if (e.target === stage) {
+        //         stage.find('Transformer').destroy();
+        //         layer.draw();
+        //         return;
+        //     }
+
+        //     const okNames = ['line', 'triangle', 'square', 'rect', 'circle', 'ellipse', 'curve', 'polyLine', 'polygon'];
+        //     if (!okNames.includes(e.target.attrs.name)) {
+        //         return;
+        //     }
+
+        //     stage.find('Transformer').destroy();
+
+        //     var tr = new Konva.Transformer();
+        //     layer.add(tr);
+        //     tr.attachTo(e.target);
+        //     layer.draw();
+        // });
+
+    </script>
+    <script type="text/javascript" src="./javascripts/shapes.js"></script>
+    <script type="text/javascript" src="./javascripts/scripts.js"></script>
+</body>
+
+</html>
